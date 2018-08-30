@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.upl.upl_survey.Dao.UserDao">
+
+	<resultMap id="UserResultMap" type="com.upl.upl_survey.Model.UserMaster">
+		<id column="id" property="id" />
+	</resultMap>
+
+	<select id="getUserRoles" resultMap="UserResultMap">
+		SELECT 
+		usr_mster.id 	as id,
+		usr_mster.type 	as type
+		FROM
+		user_master usr_mster
+	</select>
+</mapper>
