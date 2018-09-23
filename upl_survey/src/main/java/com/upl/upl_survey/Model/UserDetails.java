@@ -1,5 +1,6 @@
 package com.upl.upl_survey.Model;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class UserDetails {
@@ -8,10 +9,12 @@ public class UserDetails {
 	private String password;
 	private String created_by;
 	private String updated_by;
-	private Date created_date;
-	private Date updated_date;
+	private Timestamp created_date;
+	private Timestamp updated_date;
 	private String email;
+	private boolean is_deleted;
 	private int user_master_id;
+	private String type;
 
 	public int getId() {
 		return id;
@@ -49,7 +52,7 @@ public class UserDetails {
 		return created_date;
 	}
 
-	public void setCreated_date(Date created_date) {
+	public void setCreated_date(Timestamp created_date) {
 		this.created_date = created_date;
 	}
 
@@ -57,7 +60,7 @@ public class UserDetails {
 		return updated_date;
 	}
 
-	public void setUpdated_date(Date updated_date) {
+	public void setUpdated_date(Timestamp updated_date) {
 		this.updated_date = updated_date;
 	}
 
@@ -77,6 +80,22 @@ public class UserDetails {
 		this.user_master_id = user_master_id;
 	}
 
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public boolean isIs_deleted() {
+		return is_deleted;
+	}
+
+	public void setIs_deleted(boolean is_deleted) {
+		this.is_deleted = is_deleted;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -94,10 +113,13 @@ public class UserDetails {
 		builder.append(updated_date);
 		builder.append(", email=");
 		builder.append(email);
+		builder.append(", is_deleted=");
+		builder.append(is_deleted);
 		builder.append(", user_master_id=");
 		builder.append(user_master_id);
+		builder.append(", type=");
+		builder.append(type);
 		builder.append("]");
 		return builder.toString();
 	}
-
 }

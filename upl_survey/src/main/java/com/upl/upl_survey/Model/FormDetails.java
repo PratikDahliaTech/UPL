@@ -1,13 +1,15 @@
 package com.upl.upl_survey.Model;
 
-import java.util.Date;
+
+import java.sql.Blob;
+import java.sql.Timestamp;
 
 public class FormDetails {
 
 	private int id;
 	private String form_detail;
 	private boolean is_updated = false;
-	private Date date;
+	private Timestamp date;
 	private int form_master_id;
 	private int updated_by;
 
@@ -35,11 +37,11 @@ public class FormDetails {
 		this.is_updated = is_updated;
 	}
 
-	public Date getDate() {
+	public Timestamp getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(Timestamp date) {
 		this.date = date;
 	}
 

@@ -1,12 +1,11 @@
-var upl_survey = angular.module("upl_survey", ['ngRoute']);
+var upl_survey = angular.module("upl_survey", ['ngRoute', 'ngResource']);
 
-upl_survey.config(['$locationProvider','$routeProvider',
-	function($locationProvider,$routeProvider) {
-	$locationProvider.hashPrefix('!');
+upl_survey.config(['$routeProvider',
+	function($routeProvider) {
    $routeProvider.
    
    when('/', {
-      templateUrl: 'index.html', controller: 'LoginController'
+      templateUrl: 'index.html', controller: 'LoginController' , service:'LoginService'
    }).
    
    when('/surveyList', {
@@ -18,27 +17,3 @@ upl_survey.config(['$locationProvider','$routeProvider',
    });
 	
 }]);
-
-//var UPL_SURVEY = angular.module('upl_survey',[ 'ui.router'])
-//demoApp.constant("CONSTANTS", {
-//	UserLogin : "/upl_survey/UserLogin/"
-//});
-//	.config([
-//		'$stateProvider',
-//		'$urlRouterProvider',
-//		function($stateProvider, $urlRouterProvider) {
-//
-//			$stateProvider
-//				.state('index', {
-//					url : '/index',
-//					templateUrl : '/index.html',
-//					controller : 'LoginController'
-//				})
-//				.state('surveyList', {
-//					url : '/surveyList',
-//					templateUrl : '/SurveyList.html',
-//					controller : 'LoginController'
-//				});
-//
-//			$urlRouterProvider.otherwise('index');
-//		} ])

@@ -1,17 +1,20 @@
 package com.upl.upl_survey.Model;
 
-import java.util.Date;
+import java.sql.Timestamp;
+import java.util.List;
 
 public class FormMaster {
 
 	private int id;
 	private String form_id;
 	private boolean is_deleted = false;
-	private Date created_date;
-	private Date updated_date;
+	private Timestamp created_date;
+	private Timestamp updated_date;
 	private int created_by;
 	private int last_updated_by;
 	private int language_id;
+
+	private List<FormDetails> formdetails;
 
 	public int getId() {
 		return id;
@@ -37,19 +40,19 @@ public class FormMaster {
 		this.is_deleted = is_deleted;
 	}
 
-	public Date getCreated_date() {
+	public Timestamp getCreated_date() {
 		return created_date;
 	}
 
-	public void setCreated_date(Date created_date) {
+	public void setCreated_date(Timestamp created_date) {
 		this.created_date = created_date;
 	}
 
-	public Date getUpdated_date() {
+	public Timestamp getUpdated_date() {
 		return updated_date;
 	}
 
-	public void setUpdated_date(Date updated_date) {
+	public void setUpdated_date(Timestamp updated_date) {
 		this.updated_date = updated_date;
 	}
 
@@ -77,6 +80,14 @@ public class FormMaster {
 		this.language_id = language_id;
 	}
 
+	public List<FormDetails> getFormdetails() {
+		return formdetails;
+	}
+
+	public void setFormdetails(List<FormDetails> formdetails) {
+		this.formdetails = formdetails;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -96,6 +107,8 @@ public class FormMaster {
 		builder.append(last_updated_by);
 		builder.append(", language_id=");
 		builder.append(language_id);
+		builder.append(", formdetails=");
+		builder.append(formdetails);
 		builder.append("]");
 		return builder.toString();
 	}

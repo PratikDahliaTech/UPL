@@ -27,6 +27,12 @@
 		</dependency>
 
 		<dependency>
+			<groupId>net.minidev</groupId>
+			<artifactId>json-smart</artifactId>
+			<version>2.2</version>
+		</dependency>
+
+		<dependency>
 			<groupId>org.liquibase</groupId>
 			<artifactId>liquibase-maven-plugin</artifactId>
 			<version>3.4.1</version>
@@ -69,16 +75,43 @@
 			<artifactId>spring-boot-devtools</artifactId>
 		</dependency>
 
+		<!-- <dependency> -->
+		<!-- <groupId>javax.servlet</groupId> -->
+		<!-- <artifactId>javax.servlet-api</artifactId> -->
+		<!-- <scope>provided</scope> -->
+		<!-- </dependency> -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
 			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.ws.rs</groupId>
+			<artifactId>javax.ws.rs-api</artifactId>
+			<version>2.0</version>
 		</dependency>
 
 		<!-- <dependency> -->
 		<!-- <groupId>org.apache.tomcat.embed</groupId> -->
 		<!-- <artifactId>tomcat-embed-jasper</artifactId> -->
 		<!-- </dependency> -->
+		<!-- Logger Dependency -->
+
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jul-to-slf4j</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>log4j-over-slf4j</artifactId>
+		</dependency>
+
 
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
@@ -89,6 +122,12 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>3.8-beta4</version>
 		</dependency>
 
 	</dependencies>

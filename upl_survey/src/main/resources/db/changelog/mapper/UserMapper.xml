@@ -7,11 +7,150 @@
 		<id column="id" property="id" />
 	</resultMap>
 
-	<select id="getUserRoles" resultMap="UserResultMap">
-		SELECT 
-		usr_mster.id 	as id,
-		usr_mster.type 	as type
-		FROM
-		user_master usr_mster
+	<resultMap id="UserDetailsMap" type="com.upl.upl_survey.Model.UserDetails">
+		<id column="id" property="id" />
+	</resultMap>
+
+	<resultMap id="FormMasterMap" type="com.upl.upl_survey.Model.UserDetails">
+		<id column="id" property="id" />
+		<collection property="FormDetails" columnPrefix="fdlt_" javaType="java.util.ArrayList" resultMap="FormDetailsMap">
+			<id column="id" property="id" javaType="String" />
+		</collection>
+	</resultMap>
+	
+	<resultMap id="FormDetailsMap" type="com.upl.upl_survey.Model.UserDetails">
+		<id column="id" property="id" />
+	</resultMap>
+
+	<select id="getUserPassword" resultType="java.lang.String">
+		SELECT dtl.password
+		user_details dtl
+		where dtl.email = #{email}
 	</select>
+
+	<select id="getLoginUser" resultType="UserDetails">
+		SELECT
+		usrdlt.id as id,
+		usrdlt.email as email,
+		usrdlt.phone_no as phone_no,
+		usrdlt.created_by as created_by,
+		usrdlt.updated_by as updated_by,
+		usrmst.type as type
+		FROM user_details usrdlt
+		JOIN user_master usrmst ON (usrmst.id = usrdlt.user_master_id)
+		WHERE usrdlt.email = {#email} AND usrdlt.is_deleted =false
+	</select>
+
+	<insert id="addUser" parameterType="UserDetails">
+		INSERT INTO user_details (id, password, created_by, updated_by, created_date, updated_date, phone_no, email, user_master_id, is_deleted)
+		VALUES
+		(#{id, jdbcType=INTEGER}, 
+		#{password, jdbcType=VARCHAR}, 
+		#{created_by, jdbcType=INTEGER}, 
+		#{updated_by, jdbcType=INTEGER}, 
+		#{created_date, jdbcType=DATE}, 
+		#{updated_date, jdbcType=DATE},
+		#{phone_no, jdbcType=INTEGER} 
+		#{email, jdbcType=VARCHAR}, 
+		#{user_master_id, jdbcType=INTEGER}, 
+		false)
+	</insert>
+
+	<update id="updateUserDetails" parameterType="UserDetails">
+		update from
+		user_details set
+		password = #{password},
+		email = #{email},
+		phone_no = #{phone_no},
+		updated_by = #{updated_by},
+		updated_date = #{updated_date},
+		user_master_id = #{user_master_id}
+		is_deleted = #{is_deleted}
+		where id = #{id}
+	</update>
+
+	<update id="deleteUserDetails" parameterType="java.lang.Long">
+		UPDATE FROM user_details set is_deleted = true WHERE usrdlt.id = #{id}
+	</update>
+
+	<select id="getAllUserDetails" resultMap="UserDetailsMap">
+		SELECT
+		usrdlt.id as id,
+		usrdlt.email as email,
+		usrdlt.phone_no as phone_no,
+		usrdlt.created_by as created_by,
+		usrdlt.updated_by as updated_by,
+		usrdlt.is_deleted as usrdlt,
+		usrmst.type as type
+		FROM user_details usrdlt
+		JOIN user_master usrmst ON (usrmst.id = usrdlt.id)
+		WHERE usrmst.type != 'ADMIN'
+	</select>
+
+	<insert id="createForm" parameterType="FormMasterMap">
+		INSERT INTO form_master
+		(id, form_id, is_deleted, created_date, updated_date, created_by, last_updated_by, language_id)
+		VALUES
+		(#{id, jdbcType=INTEGER}, 
+		#{form_id}, 
+		false, 
+		#{created_date, jdbcType=DATE}, 
+		#{updated_date, jdbcType=DATE}, 
+		#{created_by, jdbcType=INTEGER}, 
+		#{last_updated_by, jdbcType=INTEGER}, 
+		#{language_id, jdbcType=INTEGER})
+	</insert>
+	
+	<select id="getFormId" resultType="java.lang.Long">
+		SELECT dfmastertl.id
+		form_master fmaster
+		where fmaster.form_id = #{form_id}
+	</select>
+	
+	<insert id="insertFormDetails" parameterType="FormDetailsMap">
+		INSERT into
+		form_details(id, form_detail, is_updated, date, form_master_id, updated_by)
+		values
+		(#{id,jdbcType=INTEGER}
+		 #{form_detail, jdbcType=BLOB},
+		 false,
+		 #{date, jdbcType=DATE},
+		 #{form_master_id,jdbcType=INTEGER},
+		 #{updated_by, jdbcType=INTEGER})
+	</insert>
+
+	<update id="deleteForm" parameterType="java.lang.Long">
+		update form_master
+		set is_deleted = true where id = #{id, jdbcType=INTEGER}
+	</update>
+	
+	<update id="updateFormMasterData" parameterType="FormMasterMap">
+		update
+		form_master set
+		updated_date = #{updated_date},
+		last_updated_by = #{last_updated_by},
+		where id = #{id, jdbcType=INTEGER}
+	</update>
+	
+	<select id="getAllForms" resultType="FormMasterMap">
+		SELECT fmaster.id 			as id,
+		  fmaster.form_id 			as form_id,
+	      fmaster.is_deleted 		as is_deleted,
+	      fmaster.created_date 		as created_date,
+	      fmaster.updated_date 		as updated_date,
+	      fmaster.created_by 		as created_by,
+	      fmaster.last_updated_by 	as last_updated_by,
+	      fmaster.langauge_id 		as langauge_id,
+	      fdetails.id 				as fdlt_id,
+	      fdetails.form_details 	as fdlt_form_details,
+	      fdetails.is_updated 		as fdlt_is_updated,
+	      fdetails.date 			as fdlt_date,
+	      fdetails.form_master_id 	as fdlt_form_master_id,
+	      fdetails.updated_by 		as fdlt_updated_by
+		  FROM form_master fmaster
+	      JOIN form_details fdetails ON (fdetails.form_master_id = fmaster.id)
+	      WHERE fmaster.is_deleted = false;
+	</select>
+
+
 </mapper>

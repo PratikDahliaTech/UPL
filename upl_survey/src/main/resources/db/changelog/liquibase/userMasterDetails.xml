@@ -9,7 +9,7 @@
 
 	<changeSet author="userMaster" id="changelog-1.0">
 
-		<createTable tableName="user_master">
+		<createTable tableName="user_master"> 
 			<column name="id" type="BIGINT">
 				<constraints nullable="false" primaryKey="true"/>
 			</column>

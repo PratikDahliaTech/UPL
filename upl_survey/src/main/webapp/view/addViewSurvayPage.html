@@ -1,23 +1,35 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <title>UPL - DEALER CENSUS SURVEY</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <!--Fonts and icons-->
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- Material Kit CSS -->
-  <link href="lib/bootstrap-components/css/material-kit.css" rel="stylesheet" />
-  <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-  <link href="lib/nouislider/css/nouislider.min.css"  rel="stylesheet">
+  <link href="../lib/bootstrap-components/css/material-kit.css" rel="stylesheet" />
+  <!--fonts-->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <!-- Select 2 bootstrap CSS -->
+  <link href="../lib/select2-bootstrap/css/select2-bootstrap.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../lib/select2-bootstrap/css/select2.min.css">  
   <!-- Jquery Data table -->
-  <link href="lib/data-tables/css/jquery.dataTables.min.css" rel="stylesheet" />
-  <link href="lib/data-tables/css/dataTables.bootstrap.min.css" rel="stylesheet" />
-  <link href="css/custom.css" rel="stylesheet" />
+  <link href="../lib/data-tables/css/jquery.dataTables.min.css" rel="stylesheet" />
+  <link href="../css/custom.css" rel="stylesheet" />
+  <!--   Core JS Files   -->
+  <script src="../lib/jquery.min.js" type="text/javascript"></script>
+  <script src="../lib/popper.min.js" type="text/javascript"></script>
+  <script src="../lib/bootstrap-components/js/bootstrap-material-design.min.js" type="text/javascript"></script>
+  <!--Select2 auto-complete -->
+  <script src="../lib/select2-bootstrap/js/select2.full.js" type="text/javascript"></script>
+  <!-- Jquery Validation -->
+  <script src="../lib/jquery-validate/js/jquery.validate.min.js" type="text/javascript"></script> 
+  <!-- Jquery Data table -->
+  <script src="../lib/data-tables/js/jquery.dataTables.min.js" type="text/javascript"></script>  
+  <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
+  <script src="../lib/bootstrap-components/js/material-kit.min.js" type="text/javascript"></script>
+  <!-- Custom JS -->
+  <script src="../js/custom.js" type="text/javascript"></script> 
 </head>
 
 <body>
@@ -25,7 +37,7 @@
     <div class="container">
       <div class="navbar-translate">
         <a class="navbar-brand" href="/">
-          <img src='images/logo.png'> </a>
+          <img src='../images/logo.png'> </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="sr-only">Toggle navigation</span>
           <span class="navbar-toggler-icon"></span>
@@ -51,7 +63,7 @@
 				</a>
 			</li>
 			<li class="nav-item">
-				<a href="index.html" class="nav-link">
+				<a href="../index.html" class="nav-link">
 					<i class="material-icons">power_settings_new</i> Log Out
 				</a>
 			</li>
@@ -59,7 +71,7 @@
       </div>
     </div>
   </nav>
-  <div class="page-header header-filter" data-parallax="true" style="background-image: url('images/bg3.jpg')">
+  <div class="page-header header-filter" data-parallax="true" style="background-image: url('../images/bg3.jpg')">
     <div class="container">
       <div class="row">
         <div class="col-md-8 ml-auto mr-auto">
@@ -94,10 +106,10 @@
 									<div class="col-sm-4">
 										<label class="label-control bmd-label-static">1A. Call Status</label>
 										<select class="form-control">
-											<option>Successful</option>
-											<option>Partial Refusal</option>
-											<option>Refusal</option>
-											<option>Mid-course termination</option>
+											<option>a. Successful</option>
+											<option>b. Partial Refusal</option>
+											<option>c. Refusal</option>
+											<option>d. Mid-course termination</option>
 										</select>
 									</div>
 									<div class="col-sm-4">
@@ -109,32 +121,32 @@
 									<div class="col-sm-4">
 										<div class="form-group">
 											<label class="label-control">1C. Date of call</label>
-											<input type="text" class="form-control datetimepicker" value="10/05/2016">
+											<div class="row onlyNumberInput">
+												<div class="col-sm-4">
+													<input type="text" class="form-control" Placeholder="DD"">
+												</div>
+												<div class="col-sm-4">
+													<input type="text" class="form-control" Placeholder="MM">
+												</div>
+												<div class="col-sm-4">
+													<input type="text" class="form-control" Placeholder="YYYY">
+												</div>
+											</div>
+											
 										</div>
 									</div>
 									<div class="col-sm-4">
 										<div class="form-group">
 											<label class="bmd-label-floating">1D. Call conducted by</label>
-											<input type="text" class="form-control">
+											<select class="form-control select2-single">
+												<option>Enter Name...</option>
+												<option>Manpreet</option>
+												<option>Ravindra</option>
+												<option>Ambadas</option>
+												<option>Rushee</option>
+												<option>Vikas</option>
+											</select>
 										</div>	
-									</div>
-									<div class="col-sm-4">
-										<div class="form-group">
-											<label class="bmd-label-floating">1E. Mobile No. </label>
-											<input type="text" class="form-control">
-										</div>
-									</div>
-									<div class="col-sm-4">
-										<div class="form-group">
-											<label class="bmd-label-floating">1F. Name of Photo file 1 </label>
-											<input type="file" class="form-control">
-										</div>
-									</div>
-									<div class="col-sm-4">
-										<div class="form-group">
-											<label class="bmd-label-floating">1G. Name of Photo file 2 </label>
-											<input type="file" class="form-control">
-										</div>
 									</div>
 									<div class="col-sm-12">
 										<div class="form-group">
@@ -153,7 +165,7 @@
 												<div class="col-sm-4">
 													<div class="form-check">
 														<label class="form-check-label">
-														  <input class="form-check-input" type="checkbox" value=""> B. Pesticides
+														  <input class="form-check-input" type="checkbox" value="" id="pesticides_agri_product_checkbox"> B. Pesticides
 														  <span class="form-check-sign">
 															<span class="check"></span>
 														  </span>
@@ -420,7 +432,7 @@
 										</div>
 									</div>
 									<div class="col-sm-4">
-										<div class="form-group">
+										<div class="form-group onlyNumberInput">
 											<label class="bmd-label-floating">14. Mobile Number </label>
 											<input type="text" class="form-control">
 										</div>
@@ -449,11 +461,11 @@
 											<label class="bmd-label-floating">15. What is your type of setup? </label>
 											<select class="form-control">
 												<option>Select one </option>
-												<option>Proprietorship </option>
-												<option>Partnership </option>
-												<option>Private Limited Company</option>
-												<option>Public Limited Company</option>
-												<option>Co-operative</option>
+												<option>a. Proprietorship </option>
+												<option>b. Partnership </option>
+												<option>c. Private Limited Company</option>
+												<option>d. Public Limited Company</option>
+												<option>e. Co-operative</option>
 											</select>
 										</div>
 									</div>
@@ -463,11 +475,11 @@
 											<div class="form-group col-sm-6">											
 												<select class="form-control" id="designation_level">
 													<option>Select one </option>
-													<option>Partner  </option>
-													<option>Proprietor  </option>
-													<option>Manager </option>
-													<option>Director </option>
-													<option>Others</option>
+													<option>a. Partner  </option>
+													<option>b. Proprietor  </option>
+													<option>c. Manager </option>
+													<option>d. Director </option>
+													<option>e. Others</option>
 												</select>
 											</div>
 											<div class="has-default col-sm-6">
@@ -482,32 +494,39 @@
 											<label class="bmd-label-floating has-filled">17. What is your highest educational qualification? </label>
 											<select class="form-control">
 												<option>Select One</option>
-												<option>Illiterate</option>
-												<option>Literate, but no formal schooling</option>
-												<option>Up to 4th Standard</option>
-												<option>5th to 9th Standard </option>
-												<option>SSC/HSC</option>
-												<option>Some college but not graduate</option>
-												<option>Graduate/Post Graduate - General</option>
-												<option>Graduate/Post Graduate - Professional</option>
+												<option>a. Illiterate</option>
+												<option>b. Literate, but no formal schooling</option>
+												<option>c. Up to 4th Standard</option>
+												<option>d. 5th to 9th Standard </option>
+												<option>e. SSC/HSC</option>
+												<option>f. Some college but not graduate</option>
+												<option>g. Graduate/Post Graduate - General</option>
+												<option>h. Graduate/Post Graduate - Professional</option>
 											</select>
 										</div>
 									</div>
 									<div class="col-sm-4">
 										<div class="form-group">
 											<label class="">18. Establishment year of firm?</label>
-											<input type="text" class="form-control calender_year_picker">
-										</div>
-									</div>
-									<div class="col-sm-4">
-										<div class="form-group">
-											<label class="">19. What percentage of your business is done through wholesale? </label>
-											<input type="text" class="form-control">
+											<select class="form-control select2-single" id="yearpicker">
+												<option>Enter Year...</option>
+											</select>
 										</div>
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-sm-12">
+										<div class="form-group">
+											<label class="">19. What percentage of your business is done through wholesale? </label>
+											<div class="row">
+												<div class="input-group persantageContainer col-sm-4 onlyNumberInput">
+												  <input type="text" class="form-control text-right" id="percentage_business_wholesale" placeholder="XX">
+												  <span class="input-group-addon">%</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-12" style="display:none;" id="depends_percentage_business_wholesale">
 										<div class="form-group shop-location-container">
 											<label class="bmd-label-floating has-filled">19A. Does the percentage of wholesale business change significantly with different agricultural seasons? </label>
 											<div class="form-check">
@@ -533,19 +552,28 @@
 									<div class="col-sm-4">
 										<div class="form-group">
 											<label class="">19B. Kharif</label>
-											<input type="text" class="form-control">
+											<div class="input-group persantageContainer onlyNumberInput">
+												<input type="text" class="form-control text-right" placeholder="XX">
+												<span class="input-group-addon">%</span>
+											</div>
 										</div>
 									</div>
 									<div class="col-sm-4">
-										<div class="form-group">
+										<div class="form-group onlyNumberInput">
 											<label class="">19C. Rabi</label>
-											<input type="text" class="form-control">
+											<div class="input-group persantageContainer onlyNumberInput">
+												<input type="text" class="form-control text-right" placeholder="XX">
+												<span class="input-group-addon">%</span>
+											</div>
 										</div>
 									</div>
 									<div class="col-sm-4">
-										<div class="form-group">
+										<div class="form-group onlyNumberInput">
 											<label class="">19D. Summer</label>
-											<input type="text" class="form-control">
+											<div class="input-group persantageContainer onlyNumberInput">
+												<input type="text" class="form-control text-right" placeholder="XX">
+												<span class="input-group-addon">%</span>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -571,7 +599,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="col-sm-12">
+									<div class="col-sm-12" id="category_handled_container" style="display:none;">
 										<div class="form-group">
 											<label class="">21. If Yes, please mention the category handled in the last financial year. </label>
 											<table class="table table-bordered table-condensed table-striped text-left" id="category_handled" style="max-width:750px;">
@@ -586,7 +614,7 @@
 														<td>1</td>
 														<td> 
 															<div class="has-default form-group">
-																<input type="text" class="form-control" placeholder="Category Name" disabled>
+																<input type="text" class="form-control" placeholder="Category Name">
 															</div>
 														</td>
 													</tr>
@@ -594,7 +622,7 @@
 														<td>2</td>
 														<td>
 															<div class="has-default form-group">
-																<input type="text" class="form-control" placeholder="Category Name" disabled>
+																<input type="text" class="form-control" placeholder="Category Name">
 															</div>
 														</td>
 													</tr>
@@ -636,7 +664,7 @@
 														<td>A</td>
 														<td>Shop Area</td>
 														<td> 
-															<div class="has-default form-group">
+															<div class="has-default form-group onlyNumberInput">
 																<input type="number" class="form-control" placeholder="XXX">
 															</div>
 														</td>
@@ -645,7 +673,7 @@
 														<td>B</td>
 														<td>Office </td>
 														<td>
-															<div class="has-default form-group">
+															<div class="has-default form-group onlyNumberInput">
 																<input type="number" class="form-control" placeholder="XXX">
 															</div>
 														</td>
@@ -654,7 +682,7 @@
 														<td>C</td>
 														<td>Warehouse (Total, if multiple warehouses are there)</td>
 														<td>
-															<div class="has-default form-group">
+															<div class="has-default form-group onlyNumberInput">
 																<input type="number" class="form-control" placeholder="XXX">
 															</div>
 														</td>
@@ -679,7 +707,7 @@
 														<td>1</td>
 														<td>Helper</td>
 														<td> 
-															<div class="has-default form-group">
+															<div class="has-default form-group onlyNumberInput">
 																<input type="number" class="form-control" placeholder="XXX">
 															</div>
 														</td>
@@ -688,7 +716,7 @@
 														<td>2</td>
 														<td>Receptionist</td>
 														<td>
-															<div class="has-default form-group">
+															<div class="has-default form-group onlyNumberInput">
 																<input type="number" class="form-control" placeholder="XXX">
 															</div>
 														</td>
@@ -697,7 +725,7 @@
 														<td>3</td>
 														<td>Delivery Staff</td>
 														<td>
-															<div class="has-default form-group">
+															<div class="has-default form-group onlyNumberInput">
 																<input type="number" class="form-control" placeholder="XXX">
 															</div>
 														</td>
@@ -706,7 +734,7 @@
 														<td>4</td>
 														<td>Driver</td>
 														<td>
-															<div class="has-default form-group">
+															<div class="has-default form-group onlyNumberInput">
 																<input type="number" class="form-control" placeholder="XXX">
 															</div>
 														</td>
@@ -715,7 +743,7 @@
 														<td>5</td>
 														<td>Manager</td>
 														<td>
-															<div class="has-default form-group">
+															<div class="has-default form-group onlyNumberInput">
 																<input type="number" class="form-control" placeholder="XXX">
 															</div>
 														</td>
@@ -724,7 +752,7 @@
 														<td>6</td>
 														<td>Salesman</td>
 														<td>
-															<div class="has-default form-group">
+															<div class="has-default form-group onlyNumberInput">
 																<input type="number" class="form-control" placeholder="XXX">
 															</div>
 														</td>
@@ -733,7 +761,7 @@
 														<td>7</td>
 														<td>Others, if applicable</td>
 														<td>
-															<div class="has-default form-group">
+															<div class="has-default form-group onlyNumberInput">
 																<input type="number" class="form-control" placeholder="XXX">
 															</div>
 														</td>
@@ -766,7 +794,7 @@
 										</div>
 									</div>
 									<div class="col-sm-4" id="vehicle_count" style="display:none;">
-										<div class="form-group">
+										<div class="form-group onlyNumberInput">
 											<label class="">24A. How many vehicle are there?</label>
 											<input type="number" class="form-control">
 										</div>
@@ -840,7 +868,7 @@
 												<div class="col-sm-4">
 													<div class="form-check">
 														<label class="form-check-label">
-														  <input class="form-check-input" type="checkbox" value=""> Others 
+														  <input class="form-check-input" id="firm_have_no_accets" type="checkbox" value=""> None 
 														  <span class="form-check-sign">
 															<span class="check"></span>
 														  </span>
@@ -848,6 +876,16 @@
 													</div>
 												</div>
 												<div class="col-sm-4">
+													<div class="form-check">
+														<label class="form-check-label">
+														  <input class="form-check-input" type="checkbox" value="" id="firm_have_other_accets"> Others 
+														  <span class="form-check-sign">
+															<span class="check"></span>
+														  </span>
+														</label>
+													</div>
+												</div>
+												<div class="col-sm-4" style="display:none;" id="other_accets_input">
 													<div class="form-group">
 														<label class="bmd-label-floating">If Others, Please Specify </label>
 														<input type="text" class="form-control">
@@ -856,106 +894,110 @@
 											</div>
 										</div>
 									</div>
-									<div class="col-sm-6">
-										<div class="form-group shop-location-container">
-											<label class="bmd-label-floating has-filled">26. Are you currently using computer in your business? </label>
-											<div class="form-check">
-												<label class="form-check-label">
-												  <input class="form-check-input" type="radio" name="computer-for-business" id="computer_for_business_Yes"> Yes  
-												  <span class="circle">
-													<span class="check"></span>
-												  </span>
-												</label>
-											</div>
-											<div class="form-check">
-												<label class="form-check-label">
-												  <input class="form-check-input" type="radio" name="computer-for-business"> No
-												  <span class="circle">
-													<span class="check"></span>
-												  </span>
-												</label>
-											</div>
-										</div>
-									</div>
-									<div class="col-sm-6">
-										<div class="form-group shop-location-container">
-											<label class="has-filled">27A. If 'Yes', Which year did you computerize operations your business?</label>
-											<input type="text" class="form-control calender_year_picker">
-										</div>
-									</div>
-									<div class="col-sm-12">
-										<div class="form-group">
-											<label class="bmd-label-floating">27B. If 'Yes', What do you use the computer for?</label>
-											<div class="row">
-												<div class="col-sm-4">
-													<div class="form-check">
-														<label class="form-check-label">
-														  <input class="form-check-input" type="checkbox" value=""> Billing 
-														  <span class="form-check-sign">
-															<span class="check"></span>
-														  </span>
-														</label>
-													</div>
+									<div id="jcompany_none_accets_hide">
+										<div class="col-sm-12">
+											<div class="form-group shop-location-container">
+												<label class="bmd-label-floating has-filled">26. Are you currently using computer in your business? </label>
+												<div class="form-check">
+													<label class="form-check-label">
+													  <input class="form-check-input" type="radio" name="computer-for-business" id="computer_for_business_Yes"> Yes  
+													  <span class="circle">
+														<span class="check"></span>
+													  </span>
+													</label>
 												</div>
-												<div class="col-sm-4">
-													<div class="form-check">
-														<label class="form-check-label">
-														  <input class="form-check-input" type="checkbox" value=""> Inventory Management  
-														  <span class="form-check-sign">
-															<span class="check"></span>
-														  </span>
-														</label>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="form-check">
-														<label class="form-check-label">
-														  <input class="form-check-input" type="checkbox" value=""> Financial Management 
-														  <span class="form-check-sign">
-															<span class="check"></span>
-														  </span>
-														</label>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="form-check">
-														<label class="form-check-label">
-														  <input class="form-check-input" type="checkbox" value=""> Internet Browsing for information on business 
-														  <span class="form-check-sign">
-															<span class="check"></span>
-														  </span>
-														</label>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="form-check">
-														<label class="form-check-label">
-														  <input class="form-check-input" type="checkbox" value=""> Others, please specify
-														  <span class="form-check-sign">
-															<span class="check"></span>
-														  </span>
-														</label>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="form-check">
-														<label class="form-check-label">
-														  <input class="form-check-input" type="checkbox" value=""> Others 
-														  <span class="form-check-sign">
-															<span class="check"></span>
-														  </span>
-														</label>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="form-group">
-														<label class="bmd-label-floating">If Others, Please Specify </label>
-														<input type="text" class="form-control">
-													</div>
+												<div class="form-check">
+													<label class="form-check-label">
+													  <input class="form-check-input" type="radio" name="computer-for-business"> No
+													  <span class="circle">
+														<span class="check"></span>
+													  </span>
+													</label>
 												</div>
 											</div>
 										</div>
-									</div>									
+										<div id="no_computers_used_hide" style="display:none;">
+											<div class="col-sm-12">
+												<div class="form-group shop-location-container">
+													<label class="has-filled">27A. If 'Yes', Which year did you computerize operations your business?</label>
+													<input type="text" class="form-control calender_year_picker">
+												</div>
+											</div>
+											<div class="col-sm-12">
+												<div class="form-group">
+													<label class="bmd-label-floating">27B. If 'Yes', What do you use the computer for?</label>
+													<div class="row">
+														<div class="col-sm-4">
+															<div class="form-check">
+																<label class="form-check-label">
+																  <input class="form-check-input" type="checkbox" value=""> Billing 
+																  <span class="form-check-sign">
+																	<span class="check"></span>
+																  </span>
+																</label>
+															</div>
+														</div>
+														<div class="col-sm-4">
+															<div class="form-check">
+																<label class="form-check-label">
+																  <input class="form-check-input" type="checkbox" value=""> Inventory Management  
+																  <span class="form-check-sign">
+																	<span class="check"></span>
+																  </span>
+																</label>
+															</div>
+														</div>
+														<div class="col-sm-4">
+															<div class="form-check">
+																<label class="form-check-label">
+																  <input class="form-check-input" type="checkbox" value=""> Financial Management 
+																  <span class="form-check-sign">
+																	<span class="check"></span>
+																  </span>
+																</label>
+															</div>
+														</div>
+														<div class="col-sm-4">
+															<div class="form-check">
+																<label class="form-check-label">
+																  <input class="form-check-input" type="checkbox" value=""> Internet Browsing for information on business 
+																  <span class="form-check-sign">
+																	<span class="check"></span>
+																  </span>
+																</label>
+															</div>
+														</div>
+														<div class="col-sm-4">
+															<div class="form-check">
+																<label class="form-check-label">
+																  <input class="form-check-input" type="checkbox" value=""> Others, please specify
+																  <span class="form-check-sign">
+																	<span class="check"></span>
+																  </span>
+																</label>
+															</div>
+														</div>
+														<div class="col-sm-4">
+															<div class="form-check">
+																<label class="form-check-label">
+																  <input class="form-check-input" type="checkbox" value=""> Others 
+																  <span class="form-check-sign">
+																	<span class="check"></span>
+																  </span>
+																</label>
+															</div>
+														</div>
+														<div class="col-sm-4">
+															<div class="form-group">
+																<label class="bmd-label-floating">If Others, Please Specify </label>
+																<input type="text" class="form-control">
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>																		
 								</div>								
 							</div>
 						</div>
@@ -975,16 +1017,23 @@
 							<div class="card-body ">
 							  <div class="tab-content">
 								<div class="row">
-									<div class="col-sm-6">
-										<label class="">28. What percentage of your Sales is on credit? <br><small><b>(If 0, go to Q29)</b></small></label>
-										<div id="percentage_sales_credit" class="slider"></div>										
+									<div class="col-sm-12">
+										<div class="form-group">									
+											<label class="">28. What percentage of your Sales is on credit? <small><b>(If 0, go to Q29)</b></small></label>																				
+											<div class="row">
+												<div class="input-group persantageContainer col-sm-4 onlyNumberInput">
+												  <input type="text" class="form-control text-right" placeholder="Enter percentage...">
+												  <span class="input-group-addon">%</span>
+												</div>																			
+											</div>																			
+										</div>																			
 									</div>
-									<div class="col-sm-6">
+									<div class="col-sm-12">
 										<label class="">28A. Does the percentage of credit given to your customers change significantly with different agricultural seasons? <br><small><b>(If No, go to Q30)</b></small></label>
 										<div class="form-group shop-location-container">											
 											<div class="form-check">
 												<label class="form-check-label">
-												  <input class="form-check-input" type="radio" name="credit-given-to-your-customers" > Yes  
+												  <input class="form-check-input" type="radio" name="credit-given-to-your-customers" id="credit_to_customer_Yes"> Yes  
 												  <span class="circle">
 													<span class="check"></span>
 												  </span>
@@ -1000,28 +1049,39 @@
 											</div>
 										</div>
 									</div>
-									<div class="col-sm-12" style="margin-bottom:25px;">		
-										<label>If 'Yes', what is the credit percentage in business in :	</label>	
-										<div class="row">
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>28B. Kharif</label>
-													<div id="percentage_sales_credit_kharif" class="slider"></div>	
-												</div>												
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>28C. Rabi </label>
-													<div id="percentage_sales_credit_rabi" class="slider"></div>
+									<div id="Q28A_dependancy" style="display:none; width: 100%;">
+										<div class="col-sm-12" style="margin-bottom:25px;">		
+											<label>If 'Yes', what is the credit percentage in business in :	</label>	
+											<div class="row">
+												<div class="col-sm-4">
+													<div class="form-group">
+														<label>28B. Kharif</label>
+														<div class="input-group persantageContainer onlyNumberInput">
+															<input type="text" class="form-control text-right" placeholder="Enter percentage...">
+															<span class="input-group-addon">%</span>
+														</div>	
+													</div>												
+												</div>
+												<div class="col-sm-4">
+													<div class="form-group">
+														<label>28C. Rabi </label>
+														<div class="input-group persantageContainer onlyNumberInput">
+															<input type="text" class="form-control text-right" placeholder="Enter percentage...">
+															<span class="input-group-addon">%</span>
+														</div>	
+													</div>
+												</div>
+												<div class="col-sm-4">
+													<div class="form-group">
+														<label>28D. Summer </label>
+														<div class="input-group persantageContainer onlyNumberInput">
+															<input type="text" class="form-control text-right" placeholder="Enter percentage...">
+															<span class="input-group-addon">%</span>
+														</div>	
+													</div>
 												</div>
 											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>28D. Summer </label>
-													<div id="percentage_sales_credit_summer" class="slider"></div>
-												</div>
-											</div>
-										</div>
+										</div>	
 									</div>	
 									<div class="col-sm-12">
 										<label class="bmd-label-floating has-filled">29. Does your firm operate (buy or sell) the business (any category)  throughout the year?</label>
@@ -1044,174 +1104,202 @@
 											</div>
 										</div>
 									</div>
-									<div class="col-sm-12">
-										<label><b>(Ask the following question - Q30 to Q32, only if the dealer us stock Pesticides - as available from the information provided in Q2</b><br><br></label>
-										<label>30. Does your firm operate (buy or sell) the business Pesticides throughout the year?<br><small><b>(If Yes, go to Q33)</b></small></label>
-										<div class="form-group shop-location-container">											
-											<div class="form-check">
-												<label class="form-check-label">
-												  <input class="form-check-input" type="radio" name="vehicle-for-delivery" id="vehicle_for_delivery_Yes"> Yes  
-												  <span class="circle">
-													<span class="check"></span>
-												  </span>
-												</label>
-											</div>
-											<div class="form-check">
-												<label class="form-check-label">
-												  <input class="form-check-input" type="radio" name="vehicle-for-delivery"> No
-												  <span class="circle">
-													<span class="check"></span>
-												  </span>
-												</label>
-											</div>
-										</div>
-									</div>	
-									<div class="col-sm-12">
-										<div class="form-group">
-											<label class="bmd-label-floating">30A.  If 'No',please tick the months, when your firm <u><b>DOES NOT OPERATE</b></u> the business for Pesticides  products. </label>
-											<div class="row">
-												<div class="col-sm-3">
-													<div class="form-check">
-														<label class="form-check-label">
-														  <input class="form-check-input" type="checkbox" value=""> January 
-														  <span class="form-check-sign">
-															<span class="check"></span>
-														  </span>
-														</label>
-													</div>
+									<div id="Q2_Pesticides_selection_dependancy" style="display:none; width: 100%;">
+										<div class="col-sm-12">
+											<label>30. Does your firm operate (buy or sell) the business Pesticides throughout the year?<br><small><b>(If Yes, go to Q33)</b></small></label>
+											<div class="form-group shop-location-container">											
+												<div class="form-check">
+													<label class="form-check-label">
+													  <input class="form-check-input" type="radio" name="vehicle-for-delivery" id="vehicle_for_delivery_Yes"> Yes  
+													  <span class="circle">
+														<span class="check"></span>
+													  </span>
+													</label>
 												</div>
-												<div class="col-sm-3">
-													<div class="form-check">
-														<label class="form-check-label">
-														  <input class="form-check-input" type="checkbox" value=""> February  
-														  <span class="form-check-sign">
-															<span class="check"></span>
-														  </span>
-														</label>
-													</div>
-												</div>
-												<div class="col-sm-3">
-													<div class="form-check">
-														<label class="form-check-label">
-														  <input class="form-check-input" type="checkbox" value=""> March 
-														  <span class="form-check-sign">
-															<span class="check"></span>
-														  </span>
-														</label>
-													</div>
-												</div>
-												<div class="col-sm-3">
-													<div class="form-check">
-														<label class="form-check-label">
-														  <input class="form-check-input" type="checkbox" value="">    April
-														  <span class="form-check-sign">
-															<span class="check"></span>
-														  </span>
-														</label>
-													</div>
-												</div>
-												<div class="col-sm-3">
-													<div class="form-check">
-														<label class="form-check-label">
-														  <input class="form-check-input" type="checkbox" value=""> May
-														  <span class="form-check-sign">
-															<span class="check"></span>
-														  </span>
-														</label>
-													</div>
-												</div>
-												<div class="col-sm-3">
-													<div class="form-check">
-														<label class="form-check-label">
-														  <input class="form-check-input" type="checkbox" value="">   June
-														  <span class="form-check-sign">
-															<span class="check"></span>
-														  </span>
-														</label>
-													</div>
-												</div>
-												<div class="col-sm-3">
-													<div class="form-check">
-														<label class="form-check-label">
-														  <input class="form-check-input" type="checkbox" value=""> July  
-														  <span class="form-check-sign">
-															<span class="check"></span>
-														  </span>
-														</label>
-													</div>
-												</div>
-												<div class="col-sm-3">
-													<div class="form-check">
-														<label class="form-check-label">
-														  <input class="form-check-input" type="checkbox" value=""> August   
-														  <span class="form-check-sign">
-															<span class="check"></span>
-														  </span>
-														</label>
-													</div>
-												</div>
-												<div class="col-sm-3">
-													<div class="form-check">
-														<label class="form-check-label">
-														  <input class="form-check-input" type="checkbox" value=""> September 
-														  <span class="form-check-sign">
-															<span class="check"></span>
-														  </span>
-														</label>
-													</div>
-												</div>
-												<div class="col-sm-3">
-													<div class="form-check">
-														<label class="form-check-label">
-														  <input class="form-check-input" type="checkbox" value=""> October    
-														  <span class="form-check-sign">
-															<span class="check"></span>
-														  </span>
-														</label>
-													</div>
-												</div>
-												<div class="col-sm-3">
-													<div class="form-check">
-														<label class="form-check-label">
-														  <input class="form-check-input" type="checkbox" value=""> November  
-														  <span class="form-check-sign">
-															<span class="check"></span>
-														  </span>
-														</label>
-													</div>
-												</div>
-												<div class="col-sm-3">
-													<div class="form-check">
-														<label class="form-check-label">
-														  <input class="form-check-input" type="checkbox" value=""> December   
-														  <span class="form-check-sign">
-															<span class="check"></span>
-														  </span>
-														</label>
-													</div>
+												<div class="form-check">
+													<label class="form-check-label">
+													  <input class="form-check-input" type="radio" name="vehicle-for-delivery"> No
+													  <span class="circle">
+														<span class="check"></span>
+													  </span>
+													</label>
 												</div>
 											</div>
-										</div>
-									</div>
-									<div class="col-sm-12">
-										<div class="form-group">
-											<label>31. How much of your sale of Pesticides is coming from different seasons?</label>
-											<div id="percentage_sales_season_Pesticides" class="slider"></div>	
 										</div>	
-										<div class="row">
-											<div class="col-sm-4 form-group">
-												<label id="slider_kharif_value"></label>
-											</div>
-											<div class="col-sm-4 form-group">
-												<label id="slider_rabi_value"></label>
-											</div>
-											<div class="col-sm-4 form-group">
-												<label id="slider_summer_value"></label>
+										<div class="col-sm-12">
+											<div class="form-group">
+												<label class="bmd-label-floating">30A.  If 'No',please tick the months, when your firm <u><b>DOES NOT OPERATE</b></u> the business for Pesticides  products. </label>
+												<div class="row">
+													<div class="col-sm-3">
+														<div class="form-check">
+															<label class="form-check-label">
+															  <input class="form-check-input" type="checkbox" value=""> January 
+															  <span class="form-check-sign">
+																<span class="check"></span>
+															  </span>
+															</label>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-check">
+															<label class="form-check-label">
+															  <input class="form-check-input" type="checkbox" value=""> February  
+															  <span class="form-check-sign">
+																<span class="check"></span>
+															  </span>
+															</label>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-check">
+															<label class="form-check-label">
+															  <input class="form-check-input" type="checkbox" value=""> March 
+															  <span class="form-check-sign">
+																<span class="check"></span>
+															  </span>
+															</label>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-check">
+															<label class="form-check-label">
+															  <input class="form-check-input" type="checkbox" value="">    April
+															  <span class="form-check-sign">
+																<span class="check"></span>
+															  </span>
+															</label>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-check">
+															<label class="form-check-label">
+															  <input class="form-check-input" type="checkbox" value=""> May
+															  <span class="form-check-sign">
+																<span class="check"></span>
+															  </span>
+															</label>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-check">
+															<label class="form-check-label">
+															  <input class="form-check-input" type="checkbox" value="">   June
+															  <span class="form-check-sign">
+																<span class="check"></span>
+															  </span>
+															</label>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-check">
+															<label class="form-check-label">
+															  <input class="form-check-input" type="checkbox" value=""> July  
+															  <span class="form-check-sign">
+																<span class="check"></span>
+															  </span>
+															</label>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-check">
+															<label class="form-check-label">
+															  <input class="form-check-input" type="checkbox" value=""> August   
+															  <span class="form-check-sign">
+																<span class="check"></span>
+															  </span>
+															</label>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-check">
+															<label class="form-check-label">
+															  <input class="form-check-input" type="checkbox" value=""> September 
+															  <span class="form-check-sign">
+																<span class="check"></span>
+															  </span>
+															</label>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-check">
+															<label class="form-check-label">
+															  <input class="form-check-input" type="checkbox" value=""> October    
+															  <span class="form-check-sign">
+																<span class="check"></span>
+															  </span>
+															</label>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-check">
+															<label class="form-check-label">
+															  <input class="form-check-input" type="checkbox" value=""> November  
+															  <span class="form-check-sign">
+																<span class="check"></span>
+															  </span>
+															</label>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-check">
+															<label class="form-check-label">
+															  <input class="form-check-input" type="checkbox" value=""> December   
+															  <span class="form-check-sign">
+																<span class="check"></span>
+															  </span>
+															</label>
+														</div>
+													</div>
+												</div>
 											</div>
 										</div>
-									</div>
-									<div class="col-sm-12">
-										<label class="bmd-label-floating has-filled">32.  Which are the Top3 crops that you are argeting for selling Agro-chemical products in each season? <b>(Crop Codes can be put as vailable in Q36)</b></label>
+										<div class="col-sm-12">
+											<div class="form-group">
+												<label>31. How much of your sale of Pesticides is coming from different seasons?</label>
+												<table class="table table-bordered table-condensed table-striped text-left" style="max-width:550px;">
+													<thead>
+														<tr>
+															<th style="width:150px;">Season</th>
+															<th>in %</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td>Kharif</td>
+															<td> 
+																<div class="has-default form-group onlyNumberInput">
+																	<input type="number" class="form-control" placeholder="Enter percentage...">
+																</div>
+															</td>
+														</tr>
+														<tr>
+															<td>Rabbi</td>
+															<td>
+																<div class="has-default form-group onlyNumberInput">
+																	<input type="number" class="form-control" placeholder="Enter percentage...">
+																</div>
+															</td>
+														</tr>
+														<tr>
+															<td>Summer</td>
+															<td>
+																<div class="has-default form-group onlyNumberInput">
+																	<input type="number" class="form-control" placeholder="Enter percentage...">
+																</div>
+															</td>
+														</tr>
+														<tr>
+															<td><b>GRAND TOTAL</b></td>
+															<td><b>
+																<span>100%</span>
+															</b></td>
+														</tr>
+													</tbody>
+												</table>	
+											</div>	
+										</div>
+										<div class="col-sm-12">
+										<label class="bmd-label-floating has-filled">32.  Which are the Top3 crops that you are targeting for selling Agro-chemical products in each season? <b>(Crop Codes can be put as available, in Q36)</b></label>
 										<div class="row">
 											<div class="col-sm-4">
 												<table class="table table-bordered table-condensed table-striped text-left" style="max-width:750px;">
@@ -1323,12 +1411,13 @@
 											</div>
 										</div>
 									</div>
+									</div>
 									<div class="col-sm-12">
 										<label class="bmd-label-floating has-filled">33. Does your firm have branches or subsidiaries or more shops in Agro-chemical business? </label>
 										<div class="form-group shop-location-container">											
 											<div class="form-check">
 												<label class="form-check-label">
-												  <input class="form-check-input" type="radio" name="branches-or-subsidiaries"> Yes  
+												  <input class="form-check-input" type="radio" name="branches-or-subsidiaries" id="firm_have_branches_Yes"> Yes  
 												  <span class="circle">
 													<span class="check"></span>
 												  </span>
@@ -1344,7 +1433,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="col-sm-12">
+									<div class="col-sm-12" style="display:none;" id="firm_have_branches">
 										<label class="bmd-label-floating has-filled"> If 'Yes', please maintain the number of Branches or Subsidiaries your firm has:</label>
 										<div class="form-group">											
 											<table class="table table-bordered table-condensed table-striped text-left" style="max-width:750px;">
@@ -1359,12 +1448,12 @@
 													<tr>
 														<td>33A. Number of Branches </td>
 														<td> 
-															<div class="has-default form-group">
+															<div class="has-default form-group onlyNumberInput">
 																<input type="number" class="form-control" placeholder="XXX">
 															</div>
 														</td>
 														<td> 
-															<div class="has-default form-group">
+															<div class="has-default form-group onlyNumberInput">
 																<input type="number" class="form-control" placeholder="XXX">
 															</div>
 														</td>
@@ -1372,12 +1461,12 @@
 													<tr>
 														<td>33B. Number of Subsidiaries </td>
 														<td>
-															<div class="has-default form-group">
+															<div class="has-default form-group onlyNumberInput">
 																<input type="number" class="form-control" placeholder="XXX">
 															</div>
 														</td>
 														<td>
-															<div class="has-default form-group">
+															<div class="has-default form-group onlyNumberInput">
 																<input type="number" class="form-control" placeholder="XXX">
 															</div>
 														</td>
@@ -1401,7 +1490,7 @@
 									<div class="col-sm-12">
 										<label class="bmd-label-floating has-filled">34. <b>Sales Details</b> -  What is the percentage breakup of various businesses that your firm undertakes from  this  location  (incase  your  business  is  spread  across  various  branches)? Also  mention  the number of companies handled in each segment. If the same company is being handled in more than one segment, it has to be counted again. <br><b>(Sum of all categories should come up to 100%)</b> </label>
 										<div class="form-group">											
-											<table class="table table-bordered table-condensed table-striped text-left" style="max-width:750px;">
+											<table id="sale_details_tbl" class="table table-bordered table-condensed table-striped text-left onlyNumberInput" style="max-width:750px;">
 													<thead>
 														<tr>
 															<th>Sales Type/Category</th>
@@ -1414,12 +1503,12 @@
 															<td>Fertilizers</td>
 															<td> 
 																<div class="has-default form-group">
-																	<input type="number" class="form-control" placeholder="XXX">
+																	<input type="number" class="form-control" value="00">
 																</div>
 															</td>
 															<td> 
 																<div class="has-default form-group">
-																	<input type="number" class="form-control" placeholder="XXX">
+																	<input type="number" class="form-control" value="00">
 																</div>
 															</td>
 														</tr>
@@ -1427,12 +1516,12 @@
 															<td>Pesticides</td>
 															<td> 
 																<div class="has-default form-group">
-																	<input type="number" class="form-control" placeholder="XXX">
+																	<input type="number" class="form-control" value="00">
 																</div>
 															</td>
 															<td> 
 																<div class="has-default form-group">
-																	<input type="number" class="form-control" placeholder="XXX">
+																	<input type="number" class="form-control" value="00">
 																</div>
 															</td>
 														</tr>
@@ -1440,12 +1529,12 @@
 															<td>Special Nutrients/Water Soluble Fertilizers</td>
 															<td> 
 																<div class="has-default form-group">
-																	<input type="number" class="form-control" placeholder="XXX">
+																	<input type="number" class="form-control" value="00">
 																</div>
 															</td>
 															<td> 
 																<div class="has-default form-group">
-																	<input type="number" class="form-control" placeholder="XXX">
+																	<input type="number" class="form-control" value="00">
 																</div>
 															</td>
 														</tr>
@@ -1453,12 +1542,12 @@
 															<td>Organic Fertilizers</td>
 															<td> 
 																<div class="has-default form-group">
-																	<input type="number" class="form-control" placeholder="XXX">
+																	<input type="number" class="form-control" value="00">
 																</div>
 															</td>
 															<td> 
 																<div class="has-default form-group">
-																	<input type="number" class="form-control" placeholder="XXX">
+																	<input type="number" class="form-control" value="00">
 																</div>
 															</td>
 														</tr>
@@ -1466,12 +1555,12 @@
 															<td>Seeds</td>
 															<td> 
 																<div class="has-default form-group">
-																	<input type="number" class="form-control" placeholder="XXX">
+																	<input type="number" class="form-control" value="00">
 																</div>
 															</td>
 															<td> 
 																<div class="has-default form-group">
-																	<input type="number" class="form-control" placeholder="XXX">
+																	<input type="number" class="form-control" value="00">
 																</div>
 															</td>
 														</tr>
@@ -1479,12 +1568,12 @@
 															<td>Veterinary Feed</td>
 															<td> 
 																<div class="has-default form-group">
-																	<input type="number" class="form-control" placeholder="XXX">
+																	<input type="number" class="form-control" value="00">
 																</div>
 															</td>
 															<td> 
 																<div class="has-default form-group">
-																	<input type="number" class="form-control" placeholder="XXX">
+																	<input type="number" class="form-control" value="00">
 																</div>
 															</td>
 														</tr>
@@ -1492,12 +1581,12 @@
 															<td>Fish Feed</td>
 															<td> 
 																<div class="has-default form-group">
-																	<input type="number" class="form-control" placeholder="XXX">
+																	<input type="number" class="form-control" value="00">
 																</div>
 															</td>
 															<td> 
 																<div class="has-default form-group">
-																	<input type="number" class="form-control" placeholder="XXX">
+																	<input type="number" class="form-control" value="00">
 																</div>
 															</td>
 														</tr>
@@ -1505,12 +1594,12 @@
 															<td>Poultry Feed</td>
 															<td> 
 																<div class="has-default form-group">
-																	<input type="number" class="form-control" placeholder="XXX">
+																	<input type="number" class="form-control" value="00">
 																</div>
 															</td>
 															<td> 
 																<div class="has-default form-group">
-																	<input type="number" class="form-control" placeholder="XXX">
+																	<input type="number" class="form-control" value="00">
 																</div>
 															</td>
 														</tr>
@@ -1518,28 +1607,28 @@
 															<td>Agricultural Equipment</td>
 															<td> 
 																<div class="has-default form-group">
-																	<input type="number" class="form-control" placeholder="XXX">
+																	<input type="number" class="form-control" value="00">
 																</div>
 															</td>
 															<td> 
 																<div class="has-default form-group">
-																	<input type="number" class="form-control" placeholder="XXX">
+																	<input type="number" class="form-control" value="00">
 																</div>
 															</td>
 														</tr>
 														<tr>
 															<td>Others Agro categories (Pl Specify)
 															    <div class="has-default form-group">
-																	<input type="text" class="form-control" placeholder="XXX">
+																	<input type="text" class="form-control" value="00">
 																</div>
 															<td> 
 																<div class="has-default form-group">
-																	<input type="number" class="form-control" placeholder="XXX">
+																	<input type="number" class="form-control" value="00">
 																</div>
 															</td>
 															<td> 
 																<div class="has-default form-group">
-																	<input type="number" class="form-control" placeholder="XXX">
+																	<input type="number" class="form-control" value="00">
 																</div>
 															</td>
 														</tr>
@@ -1547,12 +1636,12 @@
 															<td>Others Non Agro categories</td>
 															<td> 
 																<div class="has-default form-group">
-																	<input type="number" class="form-control" placeholder="XXX">
+																	<input type="number" class="form-control" value="00">
 																</div>
 															</td>
 															<td> 
 																<div class="has-default form-group">
-																	<input type="number" class="form-control" placeholder="XXX">
+																	<input type="number" class="form-control" value="00">
 																</div>
 															</td>
 														</tr>
@@ -1560,7 +1649,7 @@
 														<tr>
 															<td><b>GRAND TOTAL</b></td>
 															<td><b></b></td>
-															<td><b>100%</b></td>
+															<td><b><span id="total_Sales_Percantage"></span> %</b></td>
 														</tr>
 														 </tfoot>
 													</tbody>
@@ -1634,7 +1723,7 @@
 											<label class="bmd-label-floating">37. Please put a tick to the crop for which your firm is selling Seeds or any means for its propagation. Please  put  tick  for  each  season.  Please  add  crop  names  at  the  bottom,  if the  names  are  not  in  the list. <b>(Crops have been arranged based on Crop type and then alphabetically by Crop)</b></label>
 											<br>
 											<br>
-											<table  class="table table-bordered table-condensed table-striped text-center season-sale-tbl">
+											<table id="seedSaleTable"  class="table table-bordered table-condensed table-striped text-center season-sale-tbl">
 												<thead>
 													<tr>
 														<th>Type</th>
@@ -5226,20 +5315,5 @@
       </div>
     </div>
   </footer>
-  <!--   Core JS Files   -->
-  <script src="lib/jquery.min.js" type="text/javascript"></script>
-  <script src="lib/popper.min.js" type="text/javascript"></script>
-  <script src="lib/bootstrap-components/js/bootstrap-material-design.min.js" type="text/javascript"></script>
-  <script src="lib/bootstrap-components/js/moment.min.js"></script>
-  <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
-  <script src="lib/bootstrap-components/js/bootstrap-datetimepicker.js" type="text/javascript"></script>
-  <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-  <script src="lib/nouislider/js/nouislider.min.js" type="text/javascript"></script> 
-  <!-- Jquery Data table -->
-  <script src="lib/data-tables/js/jquery.dataTables.min.js" type="text/javascript"></script>  
-  <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
-  <script src="lib/bootstrap-components/js/material-kit.min.js" type="text/javascript"></script>
-  <!-- Custom JS -->
-  <script src="js/custom.js" type="text/javascript"></script>  
 </body>
 </html>
