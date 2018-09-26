@@ -34,13 +34,14 @@
 			<column name="created_date" type="DATETIME" />
 			<column name="updated_date" type="DATETIME" />
 			<column name="email" type="VARCHAR(50)"/>
+			<column name="phone_no" type="BIGINT"/>
+			<column name="is_deleted" type="BOOLEAN" defaultValueBoolean="false"/>
 			<column name="user_master_id" type="BIGINT">
             	<constraints nullable="false" />
         	</column>
 		</createTable>
 		
 		<addUniqueConstraint tableName="user_details" columnNames="email" constraintName="uk_email" />
-		
 		
 		<addForeignKeyConstraint baseTableName="user_details" baseColumnNames="user_master_id" constraintName="fk_user_master_id"
   			referencedTableName="user_master" referencedColumnNames="id"/>

@@ -1,6 +1,5 @@
 package com.upl.upl_survey.Model;
 
-import java.sql.Timestamp;
 import java.util.Date;
 
 public class UserDetails {
@@ -9,9 +8,10 @@ public class UserDetails {
 	private String password;
 	private String created_by;
 	private String updated_by;
-	private Timestamp created_date;
-	private Timestamp updated_date;
+	private Date created_date;
+	private Date updated_date;
 	private String email;
+	private Long phone_no;
 	private boolean is_deleted;
 	private int user_master_id;
 	private String type;
@@ -52,7 +52,7 @@ public class UserDetails {
 		return created_date;
 	}
 
-	public void setCreated_date(Timestamp created_date) {
+	public void setCreated_date(Date created_date) {
 		this.created_date = created_date;
 	}
 
@@ -60,7 +60,7 @@ public class UserDetails {
 		return updated_date;
 	}
 
-	public void setUpdated_date(Timestamp updated_date) {
+	public void setUpdated_date(Date updated_date) {
 		this.updated_date = updated_date;
 	}
 
@@ -70,6 +70,14 @@ public class UserDetails {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public boolean isIs_deleted() {
+		return is_deleted;
+	}
+
+	public void setIs_deleted(boolean is_deleted) {
+		this.is_deleted = is_deleted;
 	}
 
 	public int getUser_master_id() {
@@ -88,12 +96,12 @@ public class UserDetails {
 		this.type = type;
 	}
 
-	public boolean isIs_deleted() {
-		return is_deleted;
+	public Long getPhone_no() {
+		return phone_no;
 	}
 
-	public void setIs_deleted(boolean is_deleted) {
-		this.is_deleted = is_deleted;
+	public void setPhone_no(Long phone_no) {
+		this.phone_no = phone_no;
 	}
 
 	@Override
@@ -113,6 +121,8 @@ public class UserDetails {
 		builder.append(updated_date);
 		builder.append(", email=");
 		builder.append(email);
+		builder.append(", phone_no=");
+		builder.append(phone_no);
 		builder.append(", is_deleted=");
 		builder.append(is_deleted);
 		builder.append(", user_master_id=");
@@ -122,4 +132,5 @@ public class UserDetails {
 		builder.append("]");
 		return builder.toString();
 	}
+
 }

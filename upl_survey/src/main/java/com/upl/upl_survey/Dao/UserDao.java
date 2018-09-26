@@ -10,7 +10,6 @@ import com.upl.upl_survey.Model.FormMaster;
 import com.upl.upl_survey.Model.UserDetails;
 
 public interface UserDao {
-
 	UserDetails getLoginUser(@Param("email") String email);
 
 	String getUserPassword(@Param("email") String email);
@@ -43,5 +42,4 @@ public interface UserDao {
 			@Param("last_updated_by") Long last_updated_by, @Param("updated_date") Date updated_date);
 
 	List<FormMaster> getAllForms();
-
 }
