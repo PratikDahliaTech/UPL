@@ -1,13 +1,11 @@
 package com.upl.upl_survey.Model;
 
-
-import java.sql.Blob;
 import java.sql.Timestamp;
 
 public class FormDetails {
 
 	private int id;
-	private String form_detail;
+	private byte[] form_detail;
 	private boolean is_updated = false;
 	private Timestamp date;
 	private int form_master_id;
@@ -21,11 +19,11 @@ public class FormDetails {
 		this.id = id;
 	}
 
-	public String getForm_detail() {
+	public byte[] getForm_detail() {
 		return form_detail;
 	}
 
-	public void setForm_detail(String form_detail) {
+	public void setForm_detail(byte[] form_detail) {
 		this.form_detail = form_detail;
 	}
 

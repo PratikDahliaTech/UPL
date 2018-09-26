@@ -15,6 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.upl.upl_survey.Dao.UserDao;
@@ -22,7 +23,7 @@ import com.upl.upl_survey.Model.FormMaster;
 import com.upl.upl_survey.Model.UserDetails;
 
 @RestController
-@Produces(MediaType.APPLICATION_JSON)
+@Produces({ "application/json" })
 @RequestMapping("/upl_survey")
 public class UPLServices {
 
@@ -35,30 +36,31 @@ public class UPLServices {
 	PasswordValidation passEncrp;
 
 	@GET
-	@Path("/loginUser")
-	// @RequestMapping(value = "/loginUser", method = RequestMethod.POST)
+	@RequestMapping(value = "/loginUser")
 	public UserDetails getLoginUser(@QueryParam("email") String email, @QueryParam("password") String password) {
 		logger.info("Login User ..");
-		logger.debug("User Id :{} and Password :{} ", email, password);
-		String UserPassword = userDao.getUserPassword(email);
-		UserPassword = passEncrp.decrypt(UserPassword);
-		if (!password.equals(UserPassword)) {
-			UserDetails details = userDao.getLoginUser(email);
-			return details;
-		} else {
-			logger.info("User or Password not vaild ..");
-			return null;
-		}
+		logger.info("User Id :{} and Password :{} ", email, password);
+//		String UserPassword = userDao.getUserPassword(email);
+//		UserPassword = passEncrp.decrypt(UserPassword);
+//		if (!password.equals(UserPassword)) {
+		UserDetails details = userDao.getLoginUser(email);
+//			return details;
+//		} else {
+//			logger.info("User or Password not vaild ..");
+//			return null;
+//		}
+		logger.info("details :{}", details);
+		return details;
 	}
 
 	@GET
-	@Path("/addUser")
-//	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
-	public void addUser(@QueryParam("password") String password, @QueryParam("created_by") Long created_by, @QueryParam("phone_no") Number phone_No,
-			@QueryParam("email") String email, @QueryParam("user_master_id") Long user_master_id) {
+	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
+	public void addUser(@QueryParam("password") String password, @QueryParam("created_by") Long created_by,
+			@QueryParam("phone_no") Number phone_No, @QueryParam("email") String email,
+			@QueryParam("user_master_id") Long user_master_id) {
 		logger.info("Add new user");
-		logger.debug("New User Details password :{} created_by:{} phone_No:{} email:{}", password,
-				created_by, phone_No, email);
+		logger.debug("New User Details password :{} created_by:{} phone_No:{} email:{}", password, created_by, phone_No,
+				email);
 		if (password != null) {
 			password = passEncrp.encrypt(password);
 		}
@@ -68,8 +70,7 @@ public class UPLServices {
 	}
 
 	@GET
-	@Path("/updateUserDetails")
-//	@RequestMapping(value = "/updateRegisterUser", method = RequestMethod.POST)
+	@RequestMapping(value = "/updateUserDetails", method = RequestMethod.POST)
 	public void updateUserDetails(@QueryParam("id") Long id, @QueryParam("password") String password,
 			@QueryParam("updated_by") Long updated_by, @QueryParam("phone_no") Number phone_no,
 			@QueryParam("email") String email, @QueryParam("user_master_id") Long user_master_id) {
@@ -82,16 +83,14 @@ public class UPLServices {
 	}
 
 	@GET
-	@Path("/deleteUserDetails")
-	// @RequestMapping(value = "/getUserDetails", method = RequestMethod.GET)
+	@RequestMapping(value = "/deleteUserDetails", method = RequestMethod.GET)
 	public void deleteUserDetails(@QueryParam("id") Long id) {
 		logger.info("Delete User :{}", id);
 		userDao.deleteUserDetails(id);
 	}
 
 	@GET
-	@Path("/getAllUserDetails")
-	// @RequestMapping(value = "/getUserDetails", method = RequestMethod.GET)
+	@RequestMapping(value = "/getAllUserDetails", method = RequestMethod.GET)
 	public List<UserDetails> getAllUserDetails() {
 		logger.info("Get All User");
 		List<UserDetails> list = userDao.getAllUserDetails();
@@ -100,9 +99,8 @@ public class UPLServices {
 	}
 
 	@GET
-	@Path("/createForm")
 	@Consumes(MediaType.MULTIPART_FORM_DATA)
-//	@RequestMapping(value = "/insertFormData", method = RequestMethod.POST)
+	@RequestMapping(value = "/createForm", method = RequestMethod.POST)
 	public void insertFormData(@QueryParam("form_detail") InputStream form_detail,
 			@QueryParam("form_id") String form_id, @QueryParam("created_by") Long created_by,
 			@QueryParam("last_updated_by") Long last_updated_by, @QueryParam("language_id") String language_id) {
@@ -114,17 +112,15 @@ public class UPLServices {
 	}
 
 	@GET
-	@Path("/deleteForm")
-	// @RequestMapping(value = "/getUserDetails", method = RequestMethod.GET)
+	@RequestMapping(value = "/deleteForm", method = RequestMethod.GET)
 	public void deleteForm(@QueryParam("id") Long id) {
 		logger.info("Delete Form :{}", id);
 		userDao.deleteForm(id);
 	}
 
 	@GET
-	@Path("/updateForm")
 	@Consumes(MediaType.MULTIPART_FORM_DATA)
-//	@RequestMapping(value = "/insertFormData", method = RequestMethod.POST)
+	@RequestMapping(value = "/updateForm", method = RequestMethod.POST)
 	public void updateFormData(@QueryParam("id") Long id, @QueryParam("form_detail") InputStream form_detail,
 			@QueryParam("form_id") String form_id, @QueryParam("last_updated_by") Long last_updated_by) {
 		Date updated_date = new Date();
@@ -134,11 +130,9 @@ public class UPLServices {
 	}
 
 	@GET
-	@Path("/getAllForms")
-	// @RequestMapping(value = "/getAllForms", method = RequestMethod.GET)
+	@RequestMapping(value = "/getAllForms", method = RequestMethod.GET)
 	public List<FormMaster> getAllForms() {
 		List<FormMaster> list = userDao.getAllForms();
 		return list;
 	}
-
 }
