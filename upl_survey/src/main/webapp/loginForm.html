@@ -1,0 +1,42 @@
+<div ng-controller="LoginController" class="page-header header-filter login-page-header" style="background-image: url('images/bg3.jpg');">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4 col-md-6 ml-auto mr-auto">
+				<div class="card card-login">
+					<form class="form" role="form" ng-submit="LoginUser()">
+						<div class="card-header card-header-primary text-center">
+							<h4 class="card-title">
+								<img class="login-logo-img" src="images/logo-white.png">
+							</h4>
+						</div>
+						<p class="description text-center">Login</p>
+						<div class="card-body">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"> <i
+										class="material-icons">mail</i>
+									</span>
+								</div>
+								<input type="email" class="form-control" ng-model="email"
+									placeholder="Email...">
+							</div>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"> <i
+										class="material-icons">lock_outline</i>
+									</span>
+								</div>
+								<input type="password" class="form-control" ng-model="password"
+									placeholder="Password...">
+							</div>
+						</div>
+						<div class="footer text-center">
+							<input type="button" class="btn btn-primary" ng-click="LoginUser()" type="submit" value="Get Started" />
+<!-- 							<a href="/surveyList.html" -->
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
