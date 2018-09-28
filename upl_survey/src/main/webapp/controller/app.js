@@ -1,23 +1,52 @@
-var upl_survey = angular.module("upl_survey", ['ngRoute', 'ngResource']);
+var upl_survey = angular.module("upl_survey", [ 'ngRoute', 'ngResource' ]);
 
-upl_survey.config(['$routeProvider','$locationProvider',
-	function($routeProvider,$locationProvider) {
-	$locationProvider.hashPrefix('');
-//	$locationProvider.html5Mode(true);
-   $routeProvider.
-   
-   when('/', {
-      templateUrl: '/index.html', 
-      controller: 'LoginController'
-   }).
-  
-   when('surveyList', {
-      templateUrl: 'SurveyList.html', 
-      controller: 'LoginController'
-   }).
-   
-   otherwise({
-      redirectTo: '/'
-   });
-	
-}]);
+upl_survey.config([ '$routeProvider', '$locationProvider',
+		function($routeProvider, $locationProvider) {
+			$locationProvider.html5Mode(true).hashPrefix('');
+			$routeProvider.
+
+			when('/', {
+				templateUrl : 'view/login/loginForm.html',
+				controller : 'loginController'
+			}).
+			
+			when('/menu', {
+				templateUrl : 'view/menu.html',
+				controller : 'menuController'
+			}).
+
+			when('/surveyList', {
+				templateUrl : 'view/surveyDetails/surveyList.html',
+				controller : 'surveyController'
+			}).
+
+			when('/editSurvey', {
+				templateUrl : 'view/surveyDetails/editSurvey.html',
+				controller : 'surveyController'
+			}).
+
+			when('/addSurvey', {
+				templateUrl : 'view/surveyDetails/addSurvey.html',
+				controller : 'surveyController'
+			}).
+
+			when('/userList', {
+				templateUrl : 'view/userDetails/userList.html',
+				controller : 'userController'
+			}).
+
+			when('/editUser', {
+				templateUrl : 'view/userDetails/editUser.html',
+				controller : 'userController'
+			}).
+
+			when('/addUser', {
+				templateUrl : 'view/userDetails/addUser.html',
+				controller : 'userController'
+			}).
+
+			otherwise({
+				redirectTo : '/'
+			});
+
+		} ]);

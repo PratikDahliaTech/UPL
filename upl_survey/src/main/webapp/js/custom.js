@@ -198,8 +198,8 @@ $(document).ready(function() {
 	});
 	
 	
-	//auto-complete init plug-in
-	$( ".select2-single" ).select2( {width: '100%'} );
+//	//auto-complete init plug-in
+//	$( ".select2-single" ).select2( {width: '100%'} );
 });
 
 //Step Changing function
