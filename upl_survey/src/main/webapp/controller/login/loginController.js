@@ -3,15 +3,15 @@ upl_survey.controller("loginController", [
 		'$location',
 		'loginService',
 		function($scope, $location, loginService) {
-			console.log("In controller");
+			console.log("In login controller");
 
 			$scope.loginUser = function() {
 				console.log($scope.email, $scope.password);
-				console.log("In function");
+				console.log("In loginUser function");
 				loginService.loginUser($scope.email, $scope.password).then(
 						function(response) {
 							console.log(response);
-							$location.url('/menu');
+							$location.url('/surveyList');
 						}, function(errResponse) {
 							console.log(errResponse)
 							console.error('Error while creating User');

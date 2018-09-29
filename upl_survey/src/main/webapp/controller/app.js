@@ -10,11 +10,6 @@ upl_survey.config([ '$routeProvider', '$locationProvider',
 				controller : 'loginController'
 			}).
 			
-			when('/menu', {
-				templateUrl : 'view/menu.html',
-				controller : 'menuController'
-			}).
-
 			when('/surveyList', {
 				templateUrl : 'view/surveyDetails/surveyList.html',
 				controller : 'surveyController'

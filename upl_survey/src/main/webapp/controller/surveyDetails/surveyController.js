@@ -1,10 +1,19 @@
 upl_survey.controller("surveyController", [
 	'$scope',
 	'surveyService',
-	function($scope, userDetilsService) {
-		console.log("In controller");
+	function($scope, surveyService) {
+		
+		$scope.surveyList =[
+			{
+				"form_id" :"1",
+				"dealer_name":"abc",
+				"created_by":"pratik",
+				"created_date":"12-2-2018"
+			}
+		]
+		console.log("In survey controller");
 		$scope.getAllForms = function() {
-			console.log("In function");
+			console.log("In getAllForms function");
 			surveyService.getAllForms($scope.password, $scope.password)
 				.then(function(response) {
 					console.log(response);

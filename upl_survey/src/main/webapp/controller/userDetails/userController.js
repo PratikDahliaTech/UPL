@@ -2,15 +2,23 @@ upl_survey.controller("userController", [
 		'$scope',
 		'$location',
 		'userService',
-		function($scope, $location, LoginService) {
-			console.log("In controller");
-			
+		function($scope, $location, userService) {
+			console.log("In user controller");
+
 			$scope.addUser = function() {
 				$location.url('/addUser');
 			}
-			
+
+			$scope.roles = [ {
+				"id" : "1",
+				"name" : "USER"
+			}, {
+				"id" : "1",
+				"name" : "SURVEYOR"
+			} ]
+
 			$scope.addNewUser = function() {
-				console.log("In function");
+				console.log("In add function");
 				userService.addUser($scope.password, $scope.created_by,
 						$scope.phone_no, $scope.email, $scope.user_master_id)
 						.then(function(response) {
@@ -68,8 +76,8 @@ upl_survey.controller("userController", [
 							console.error('Error while creating User');
 						})
 			}
-			
-			$scope.getAllUserDetails();
+
+			// $scope.getAllUserDetails();
 
 		} ]);
 

@@ -1,46 +1,54 @@
 <div ng-controller="userController">
-	<div class="tab-pane" id="add_user">
-		<div class="row">
-			<form class="form" role="form" ng-submit="addNewUser()">
-				<div class="col-lg-4 col-sm-6">
-					<div class="form-group">
-						<label for="surveyor_name_input" class="bmd-label-floating">Surveyor
-							name</label> <input type="text" class="form-control" id="surveyor_name"
-							ng-model="LoginUser.surveyor_name">
-					</div>
+	<div ng-include="'view/menu.html'"></div>
+	<div class="main main-raised">
+		<div class="container">
+			<div class="section">
+				<div class="tab-pane">
+<!-- 					<div class="row"> -->
+						<form class="form" role="form" ng-submit="addNewUser()">
+							<div class="col-lg-4 col-sm-6">
+								<div class="form-group">
+									<label for="surveyor_name_input" class="bmd-label-floating">Surveyor
+										name</label> <input type="text" class="form-control"
+										id="surveyor_name" ng-model="LoginUser.surveyor_name">
+								</div>
+							</div>
+							<div class="col-lg-4 col-sm-6">
+								<div class="form-group bmd-form-group is-filled">
+									<label for="surveyor_name_input" class="bmd-label-floating">Role</label>
+									<select class="form-control">
+										<option>Please Select Role</option>
+										<option>User</option>
+										<option>Surveyor</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-lg-4 col-sm-6">
+								<div class="form-group">
+									<label for="email_input" class="bmd-label-floating">Email
+										id</label> <input type="email" class="form-control" id="email">
+								</div>
+							</div>
+							<div class="col-lg-4 col-sm-6">
+								<div class="form-group">
+									<label for="password_input" class="bmd-label-floating">Password</label>
+									<input type="text" class="form-control" id="password">
+								</div>
+							</div>
+							<div class="col-lg-4 col-sm-6">
+								<div class="form-group">
+									<label for="mobile_input" class="bmd-label-floating">Mobile
+										No.</label> <input type="text" class="form-control" id="mobile">
+								</div>
+							</div>
+							<div class="col-sm-12 text-center">
+								<button class="btn btn-primary">Add</button>
+							</div>
+						</form>
+<!-- 					</div> -->
 				</div>
-				<div class="col-lg-4 col-sm-6">
-					<div class="form-group bmd-form-group is-filled">
-						<label for="surveyor_name_input" class="bmd-label-floating">Role</label>
-						<select class="form-control">
-							<option>Please Select Role</option>
-							<option>Admin</option>
-							<option>Surveyor</option>
-						</select>
-					</div>
-				</div>
-				<div class="col-lg-4 col-sm-6">
-					<div class="form-group">
-						<label for="email_input" class="bmd-label-floating">Email
-							id</label> <input type="email" class="form-control" id="email">
-					</div>
-				</div>
-				<div class="col-lg-4 col-sm-6">
-					<div class="form-group">
-						<label for="password_input" class="bmd-label-floating">Password</label>
-						<input type="text" class="form-control" id="password">
-					</div>
-				</div>
-				<div class="col-lg-4 col-sm-6">
-					<div class="form-group">
-						<label for="mobile_input" class="bmd-label-floating">Mobile
-							No.</label> <input type="text" class="form-control" id="mobile">
-					</div>
-				</div>
-				<div class="col-sm-12 text-center">
-					<button class="btn btn-primary">Add</button>
-				</div>
-			</form>
+			</div>
 		</div>
 	</div>
+	<div ng-include="'view/footer.html'"></div>
 </div>
