@@ -9,7 +9,7 @@
 	<changeSet author="languageMaster" id="changelog-1.0">
 
 		<createTable tableName="language_master">
-			<column name="id" type="BIGINT">
+			<column name="id" type="BIGINT" autoIncrement="true">
 				<constraints nullable="false" primaryKey="true" />
 			</column>
 			<column name="language" type="VARCHAR(20)">

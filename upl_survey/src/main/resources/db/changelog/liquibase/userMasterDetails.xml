@@ -10,7 +10,7 @@
 	<changeSet author="userMaster" id="changelog-1.0">
 
 		<createTable tableName="user_master"> 
-			<column name="id" type="BIGINT">
+			<column name="id" type="BIGINT" autoIncrement="true">
 				<constraints nullable="false" primaryKey="true"/>
 			</column>
 			<column name="type" type="VARCHAR(20)">
@@ -23,7 +23,7 @@
 	<changeSet author="userDetails" id="changelog-1.0">
 
 		<createTable tableName="user_details">
-			<column name="id" type="BIGINT">
+			<column name="id" type="BIGINT" autoIncrement="true">
 				<constraints nullable="false" primaryKey="true"/>
 			</column>
 			<column name="password" type="VARCHAR(30)">

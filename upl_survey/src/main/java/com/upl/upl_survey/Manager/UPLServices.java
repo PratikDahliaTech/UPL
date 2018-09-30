@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
@@ -53,16 +54,18 @@ public class UPLServices {
 		return details;
 	}
 
-	@GET
+	@POST
 	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
 	public void addUser(@QueryParam("password") String password, @QueryParam("created_by") Long created_by,
 			@QueryParam("phone_no") Number phone_No, @QueryParam("email") String email,
 			@QueryParam("user_master_id") Long user_master_id) {
 		logger.info("Add new user");
-		logger.debug("New User Details password :{} created_by:{} phone_No:{} email:{}", password, created_by, phone_No,
-				email);
+		logger.info("New User Details password :{" + password + "} created_by:{" + created_by + "} phone_No:{"
+				+ phone_No + "} email:{" + email + "} user_master_id=" + user_master_id);
 		if (password != null) {
+			logger.info("password :", password);
 			password = passEncrp.encrypt(password);
+			logger.info("encr password :", password);
 		}
 		Date created_date = new Date();
 		Date updated_date = new Date();

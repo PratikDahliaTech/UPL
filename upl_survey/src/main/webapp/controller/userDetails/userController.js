@@ -2,32 +2,38 @@ upl_survey.controller("userController", [
 		'$scope',
 		'$location',
 		'userService',
-		function($scope, $location, userService) {
+		'sourceObject',
+		function($scope, $location, userService, sourceObject) {
 			console.log("In user controller");
-
+			$scope.data = [];
+			var id = sourceObject.currentUser;
+			console.log(sourceObject.currentUser);
 			$scope.addUser = function() {
 				$location.url('/addUser');
 			}
 
-			$scope.roles = [ {
-				"id" : "1",
-				"name" : "USER"
-			}, {
-				"id" : "1",
-				"name" : "SURVEYOR"
-			} ]
-
 			$scope.addNewUser = function() {
 				console.log("In add function");
-				userService.addUser($scope.password, $scope.created_by,
-						$scope.phone_no, $scope.email, $scope.user_master_id)
-						.then(function(response) {
-							console.log(response);
-							$location.url('/userList');
-						}, function(response) {
-							$scope.errors = response.data.errorMessages;
-							console.error('Error while creating User');
-						})
+
+				$scope.created_by = sourceObject.currentUser.id;
+				console.log($scope.data);
+				if ($scope.data.type = "ADMIN") {
+					$scope.data.type = 2;
+				} else if ($scope.data.type = "USER") {
+					$scope.data.type = 3;
+				} else {
+					$scope.data.type = 4;
+				}
+				$scope.user_master_id = $scope.data.type;
+				userService.addUser($scope.data.password, $scope.created_by,
+						$scope.phone_no, $scope.data.email,
+						$scope.user_master_id).then(function(response) {
+					console.log(response);
+					$location.url('/userList');
+				}, function(response) {
+					$scope.errors = response.data.errorMessages;
+					console.error('Error while creating User');
+				})
 			}
 
 			$scope.editUserDetails = function() {
@@ -87,8 +93,9 @@ upl_survey.service('userService', [
 
 			this.addUser = function addUser(password, created_by, phone_no,
 					email, user_master_id) {
+				console.log("In add user service");
 				return $http({
-					method : 'GET',
+					method : 'POST',
 					url : '/upl_survey/addUser',
 					params : {
 						password : password,

@@ -4,48 +4,46 @@
 		<div class="container">
 			<div class="section">
 				<div class="tab-pane">
-<!-- 					<div class="row"> -->
 						<form class="form" role="form" ng-submit="addNewUser()">
 							<div class="col-lg-4 col-sm-6">
 								<div class="form-group">
-									<label for="surveyor_name_input" class="bmd-label-floating">Surveyor
-										name</label> <input type="text" class="form-control"
-										id="surveyor_name" ng-model="LoginUser.surveyor_name">
+									<label for="surveyor_name_input" class="bmd-label-floating">Surveyor name</label> 
+										<input type="text" class="form-control"
+										id="surveyor_name" ng-model="data.surveyor_name">
 								</div>
 							</div>
 							<div class="col-lg-4 col-sm-6">
 								<div class="form-group bmd-form-group is-filled">
 									<label for="surveyor_name_input" class="bmd-label-floating">Role</label>
-									<select class="form-control">
-										<option>Please Select Role</option>
-										<option>User</option>
-										<option>Surveyor</option>
+									<select class="form-control" ng-model="data.type">
+										<option value="2">ADMIN</option>
+										<option value="3">USER</option>
+										<option value="4">SURVEYOR</option>
 									</select>
 								</div>
 							</div>
 							<div class="col-lg-4 col-sm-6">
 								<div class="form-group">
-									<label for="email_input" class="bmd-label-floating">Email
-										id</label> <input type="email" class="form-control" id="email">
+									<label for="email_input" class="bmd-label-floating">Email id</label> 
+									<input type="email" class="form-control" id="email" ng-model="data.email_id">
 								</div>
 							</div>
 							<div class="col-lg-4 col-sm-6">
 								<div class="form-group">
 									<label for="password_input" class="bmd-label-floating">Password</label>
-									<input type="text" class="form-control" id="password">
+									<input type="text" class="form-control" id="password" ng-model="data.password">
 								</div>
 							</div>
 							<div class="col-lg-4 col-sm-6">
 								<div class="form-group">
-									<label for="mobile_input" class="bmd-label-floating">Mobile
-										No.</label> <input type="text" class="form-control" id="mobile">
+									<label for="mobile_input" class="bmd-label-floating">Mobile No.</label> 
+									<input type="text" class="form-control" id="mobile" ng-model="data.phone_no">
 								</div>
 							</div>
 							<div class="col-sm-12 text-center">
-								<button class="btn btn-primary">Add</button>
+								<input type="button" class="btn btn-primary" ng-click="addNewUser()" type="submit" value="Add" />
 							</div>
 						</form>
-<!-- 					</div> -->
 				</div>
 			</div>
 		</div>

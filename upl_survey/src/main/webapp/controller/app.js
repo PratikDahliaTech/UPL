@@ -1,6 +1,7 @@
-var upl_survey = angular.module("upl_survey", [ 'ngRoute', 'ngResource' ]);
+var upl_survey = angular.module("upl_survey", [ 'ngRoute', 'ngResource',
+		'ui.select' ])
 
-upl_survey.config([ '$routeProvider', '$locationProvider',
+.config([ '$routeProvider', '$locationProvider',
 		function($routeProvider, $locationProvider) {
 			$locationProvider.html5Mode(true).hashPrefix('');
 			$routeProvider.
@@ -9,7 +10,7 @@ upl_survey.config([ '$routeProvider', '$locationProvider',
 				templateUrl : 'view/login/loginForm.html',
 				controller : 'loginController'
 			}).
-			
+
 			when('/surveyList', {
 				templateUrl : 'view/surveyDetails/surveyList.html',
 				controller : 'surveyController'
@@ -44,4 +45,11 @@ upl_survey.config([ '$routeProvider', '$locationProvider',
 				redirectTo : '/'
 			});
 
-		} ]);
+		} ])
+
+.factory('sourceObject',[
+	function(){
+	  return {
+		  currentUser : ''
+	  }
+	}]);

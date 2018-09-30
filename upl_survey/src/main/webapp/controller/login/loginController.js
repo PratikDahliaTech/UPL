@@ -2,7 +2,8 @@ upl_survey.controller("loginController", [
 		'$scope',
 		'$location',
 		'loginService',
-		function($scope, $location, loginService) {
+		'sourceObject',
+		function($scope, $location, loginService,sourceObject) {
 			console.log("In login controller");
 
 			$scope.loginUser = function() {
@@ -12,6 +13,8 @@ upl_survey.controller("loginController", [
 						function(response) {
 							console.log(response);
 							$location.url('/surveyList');
+							sourceObject.currentUser = response.data;
+							console.log("source :",sourceObject.currentUser);
 						}, function(errResponse) {
 							console.log(errResponse)
 							console.error('Error while creating User');
